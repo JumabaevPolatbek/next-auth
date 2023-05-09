@@ -1,3 +1,4 @@
+import FormSign from '@/components/FormSign';
 import { signIn } from 'next-auth/react';
 
 const login = () => {
@@ -25,6 +26,7 @@ const login = () => {
 			>
 				Yandex
 			</button>
+			<FormSign/>
 		</div>
 	);
 };
