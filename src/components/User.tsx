@@ -1,28 +1,40 @@
-import { IUser } from "@/types/product";
-import Image from "next/image";
-
-export const UserDetail = ({ users }: { users: IUser[] }) => {
-  console.log(users);
-  return (
-    <>
-      {users?.map((user) => {
-        return (
-          <div
-            className="flex justify-between items-center py-2 px-3 my-1 border rounded"
-            key={user.id}
-          >
-            <Image
-              src={user.user_detail.user_image}
-              width={60}
-              height={60}
-              alt={user.username}
-            />
-            <div className="text-[20px] px-3 py-2">{user.username}</div>
-            <div>{user.user_detail.first_name}</div>
-            <div>{user.user_detail.last_name}</div>
-          </div>
-        );
-      })}
-    </>
-  );
+import { IUser } from '@/types/product';
+import Image from 'next/image';
+import TableRow from '@mui/material/TableRow';
+import TableCell from '@mui/material/TableCell';
+export const UserDetail = ({ user }: { user: IUser }) => {
+	return (
+		<TableRow
+			key={user.username}
+			sx={{
+				'&:last-child td, &:last-child th': {
+					border: 0,
+				},
+			}}
+		>
+			<TableCell
+				component='td'
+				width={'fit-content'}
+			>
+				<Image
+					src={user.user_detail.user_image}
+					width={100}
+					height={100}
+					alt={user.username}
+				/>
+			</TableCell>
+			<TableCell >
+				{user.username}
+			</TableCell>
+			<TableCell >
+				{user.user_detail.first_name}
+			</TableCell>
+			<TableCell >
+				{user.user_detail.last_name}
+			</TableCell>
+			<TableCell >
+				{`${user.is_admin}`}
+			</TableCell>
+		</TableRow>
+	);
 };
