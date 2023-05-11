@@ -31,14 +31,6 @@ export const getServerSideProps: GetServerSideProps<{
 export default function ({
   data,
 }: InferGetServerSidePropsType<typeof getServerSideProps>) {
-  const session = useSession();
-  if (session.data?.user.decode.is_admin !== 1) {
-    return (
-      <div className="container mx-auto">
-        <h2>У вас нет прав администратора!!</h2>
-      </div>
-    );
-  }
   return (
     <>
       <div className="container mx-auto mt-2">
