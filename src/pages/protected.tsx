@@ -1,6 +1,6 @@
 import { IUser } from "@/types/product";
 import { GetServerSideProps, InferGetServerSidePropsType } from "next";
-import { getSession, useSession } from "next-auth/react";
+import { getSession } from "next-auth/react";
 import Table from "@mui/material/Table";
 import TableBody from "@mui/material/TableBody";
 import TableCell from "@mui/material/TableCell";
@@ -28,7 +28,7 @@ export const getServerSideProps: GetServerSideProps<{
     },
   };
 };
-export default function ({
+export default function Page({
   data,
 }: InferGetServerSidePropsType<typeof getServerSideProps>) {
   return (
