@@ -56,7 +56,7 @@ export const authOptions: NextAuthOptions = {
 			},
 		}),
 	],
-	// secret: 'f97c215b445c6747df0099a6c7d56a18',
+	secret: 'f97c215b445c6747df0099a6c7d56a18',
 
 	callbacks: {
 		async jwt({ token, user }) {
